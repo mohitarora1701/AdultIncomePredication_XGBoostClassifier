@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=ABeeZee" rel="stylesheet">
+    <title>Adult Income</title>
+</head>
+<style>
+    body {
+        font-family: "ABeeZee";
+        height: 100%;
+        background-image: url("/static/bg.png");
+        background-size: cover;
+    }
+    img{
+        height: 100%;
+        /* background-image: url("bg.jpg"); */
+        background-size: cover;
+    }
+    h1 {
+        font-family: "ABeeZee";
+        color: whitesmoke
+    }
+
+    .main {
+        font-family: "ABeeZee";
+        text-align: center;
+        padding-top: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 50px;
+        margin-left: 35%;
+        margin-right: 35%;
+        margin-top: 2%;
+        border-radius: 15px;
+        box-shadow: 0 0 20px 5px rgba(226, 226, 226, 0.2);
+        /* background-color: rgb(189, 97, 36); */
+        backdrop-filter: blur(20px);
+    }
+
+    select,input {
+    font-family: 'ABeeZee';
+    font-size: 20px;
+    text-decoration: none;
+    padding: 2px;
+    width: 400px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    text-align: center;
+    margin: 1%;
+
+    }
+
+    select:hover{
+        cursor: pointer;
+    }
+
+    input::-webkit-input-placeholder {
+        color: black;
+        opacity: 0.2;
+    }
+
+    label {
+        font-size: 20px;
+        color:white;
+    }
+
+    .button {
+        font-family: 'ABeeZee';
+        height: 50px;
+        width: 130px;
+        border-radius: 12px;
+        text-decoration: none;
+        border: none;
+        /* border: 2px solid rgb(111, 138, 153); */
+        cursor: pointer;
+        font-size: 20px;
+        transition: 0.2s;
+    }
+
+    .button:hover {
+        font-size: 20px;
+        border: none;
+        background-color: rgb(255, 155, 155);
+        box-shadow: 0px 0px 15px 2px rgb(255, 155, 155);
+        transition: 0.3s;
+    }
+
+    .main .pred {
+        color: whitesmoke;
+        margin: 20px;
+
+    }
+
+    .main .info {
+        color: white;
+        font-size: 12px;
+    }
+</style>
+
+<body>
+    <div class="main">
+        <!-- <img src="/static/bg.jpg"> -->
+        <form method="POST" id="predict">
+            <h1>Adult Income Prediction</h1>
+            <div class="1">
+                <label>Select Work Class</label><br>
+                <select name="work_class" required>
+                    <option selected disabled style="opacity:0.2;"> Work Class</option>
+                    <option value="1">Self employe inc</option>
+                    <option value="2">State Goverment</option>
+                    <option value="3">Federal Goverment</option>
+                    <option value="4">Without pay</option>
+                    <option value="5">Local Goverment</option>
+                    <option value="6">Private</option>
+                    <option value="7">Self employe not inc</option>
+                    <option value="8">Never-worked</option>
+                </select><br><br>
+
+                <label>Select Education</label><br>
+                <select name="education" required>
+                    <option selected disabled style="opacity:0.2;"> Education</option>
+                    <option value="1">Preschool</option>
+                    <option value="2">1st-4th</option>
+                    <option value="3">5th-6th</option>
+                    <option value="4">7th-8th</option>
+                    <option value="5">9th</option>
+                    <option value="6">10th</option>
+                    <option value="7">11th</option>
+                    <option value="8">12st</option>
+                    <option value="9">HS-grad</option>
+                    <option value="10">Prof-school</option>
+                    <option value="11">Assoc-acdm</option>
+                    <option value="12">Assoc-voc</option>
+                    <option value="13">Some-college</option>
+                    <option value="14">Bachelors</option>
+                    <option value="15">Masters</option>
+                    <option value="16">Doctorate</option>   
+                </select><br><br>
+
+                <label>Select Marital Status</label><br>
+                <select name="marital_status" required>
+                    <option selected disabled style="opacity:0.2;"> Marital Status</option>
+                    <option value="1">Married-spouse-absent</option>
+                    <option value="2">Widowed</option>
+                    <option value="3">Married-civ-spouse</option>
+                    <option value="4">Separated</option>
+                    <option value="5">Divorced</option>
+                    <option value="6">Never-married</option>
+                    <option value="7">Married-AF-spouse</option>
+                </select><br><br>
+
+
+                <label>Select Occupation</label><br>
+                <select name="occupation" required>
+                    <option selected disabled style="opacity:0.2;"> Occupation</option>
+                    <option value="1">Farming-fishing</option>
+                    <option value="2">Tech-support</option>
+                    <option value="3">Adm-clerical</option>
+                    <option value="4">Handlers-cleaners</option>
+                    <option value="5">Prof-specialty</option>
+                    <option value="6">Machine-op-inspct</option>
+                    <option value="7">Exec-managerial</option>
+                    <option value="8">Priv-house-serv</option>
+                    <option value="9">Craft-repair</option>
+                    <option value="10">Sales</option>
+                    <option value="11">Transport-moving</option>
+                    <option value="12">Armed-Forces</option>
+                    <option value="13">Other-service</option>
+                    <option value="14">Protective-serv</option>
+                </select><br><br>
+
+
+                <label>Select Realtionship</label><br>
+                <select name="relationship" required>
+                    <option selected disabled style="opacity:0.2;"> Relationship</option>
+                    <option value="1">Not-in-family</option>
+                    <option value="2">Wife</option>
+                    <option value="3">Other-relative</option>
+                    <option value="4">Unmarried</option>
+                    <option value="5">Husband</option>
+                    <option value="6">Own-child</option>
+                </select><br><br>
+
+                <label>Select Race</label><br>
+                <select name="race" required>
+                    <option selected disabled style="opacity:0.2;"> Race</option>
+                    <option value="1">Black</option>
+                    <option value="2">Asian-Pac-Islander</option>
+                    <option value="3">Other</option>
+                    <option value="4">White</option>
+                    <option value="5">Amer-Indian-Eskimo</option>
+                </select><br><br>
+
+                <label>Select Gender</label><br>
+                <select name="sex" required>
+                    <option selected disabled style="opacity:0.2;"> Gender</option>
+                    <option value="0">Female</option>
+                    <option value="1">Male</option>
+                </select><br><br>
+
+                 <input type="submit" value="Predict" name="pred" class="button"/>
+                <div class="info">
+                    <p>*This prediction accuracy is 83.29%</p>
+                </div>
+            </div>
+
+        </form><br>
+    </div>
+</body>
+
+</html>
